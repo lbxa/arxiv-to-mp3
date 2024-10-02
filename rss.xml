@@ -33,7 +33,7 @@
       <description>Recording of Andrej Karpathy's lecture or paper.</description>
       <link>https://storage.googleapis.com/arxiv-audio-store/lib/kaparthy.mp3</link>
       <guid>https://storage.googleapis.com/arxiv-audio-store/lib/kaparthy.mp3</guid>
-      <enclosure url="https://storage.googleapis.com/arxiv-audio-store/lib/kaparthy.mp3" length="12345678" type="audio/mpeg"/>
+      <enclosure url="https://storage.googleapis.com/arxiv-audio-store/lib/kaparthy.mp3" length="264700000" type="audio/mpeg"/>
       <pubDate>Wed, 04 Oct 2023 10:00:00 GMT</pubDate>
     </item>
 
@@ -43,7 +43,7 @@
       <description>Recording of the paper on Neural Radiance Fields (NeRF).</description>
       <link>https://storage.googleapis.com/arxiv-audio-store/lib/nerf.mp3</link>
       <guid>https://storage.googleapis.com/arxiv-audio-store/lib/nerf.mp3</guid>
-      <enclosure url="https://storage.googleapis.com/arxiv-audio-store/lib/nerf.mp3" length="12345678" type="audio/mpeg"/>
+      <enclosure url="https://storage.googleapis.com/arxiv-audio-store/lib/nerf.mp3" length="45689000" type="audio/mpeg"/>
       <pubDate>Wed, 04 Oct 2023 10:00:00 GMT</pubDate>
     </item>
 
@@ -53,7 +53,7 @@
       <description>Recording of a paper by Yann LeCun.</description>
       <link>https://storage.googleapis.com/arxiv-audio-store/lib/yann.mp3</link>
       <guid>https://storage.googleapis.com/arxiv-audio-store/lib/yann.mp3</guid>
-      <enclosure url="https://storage.googleapis.com/arxiv-audio-store/lib/yann.mp3" length="12345678" type="audio/mpeg"/>
+      <enclosure url="https://storage.googleapis.com/arxiv-audio-store/lib/yann.mp3" length="60689000" type="audio/mpeg"/>
       <pubDate>Wed, 04 Oct 2023 10:00:00 GMT</pubDate>
     </item>
 
