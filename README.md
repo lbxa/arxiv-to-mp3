@@ -4,6 +4,8 @@ Transforms any PDF into an mp3 file. Specifically designed for arXiv papers, and
 
 Think of it like a printing service for papers. The costs to produce is normally around [$15.00/1M characters](https://openai.com/api/pricing/).
 
+You can host any of these papers using your preferred podcasting app. The RSS feed was verified using W3C's [Feed Validation Service](https://validator.w3.org/feed/).
+
 ## 📄 Copyright
 
 ### **Ownership and Rights**
