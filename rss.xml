@@ -7,7 +7,7 @@
     <link>https://lbxa.github.io/arxiv-to-mp3/</link>
     <itunes:category text="Technology" />
     <itunes:image href="https://lbxa.github.io/arxiv-to-mp3/cover.png"/>
-    <itunes:explicit>no</itunes:explicit>
+    <itunes:explicit>true</itunes:explicit>
     <description>A collection of mp3 recordings of research papers for deep understanding.</description>
     <language>en-us</language>
 
