@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>My Research Paper Recordings</title>
     <link>https://lbxa.github.io/arxiv-to-mp3/</link>
@@ -9,18 +11,15 @@
     <description>A collection of mp3 recordings of research papers for deep understanding.</description>
     <language>en-us</language>
 
-    <rss version="2.0"
-     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
-     xmlns:atom="http://www.w3.org/2005/Atom">
-     <atom:link href="https://lbxa.github.io/arxiv-to-mp3/rss.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://lbxa.github.io/arxiv-to-mp3/rss.xml" rel="self" type="application/rss+xml"/>
 
     <!-- Episode 1: Attention -->
     <item>
       <title>Attention is All You Need</title>
       <description>Recording of the paper "Attention is All You Need".</description>
-      <link>https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/attention.mp3</link>
-      <guid>https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/attention.mp3</guid>
-      <enclosure url="https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/attention.mp3" length="LENGTH_IN_BYTES" type="audio/mpeg"/>
+      <link>https://raw.githubusercontent.com/lbxa/arxiv-to-mp3/master/lib/attention.mp3</link>
+      <guid>https://raw.githubusercontent.com/lbxa/arxiv-to-mp3/master/lib/attention.mp3</guid>
+      <enclosure url="https://raw.githubusercontent.com/lbxa/arxiv-to-mp3/master/lib/attention.mp3" length="12345678" type="audio/mpeg"/>
       <pubDate>Wed, 04 Oct 2023 10:00:00 GMT</pubDate>
     </item>
 
@@ -28,9 +27,9 @@
     <item>
       <title>Andrej Karpathy's Lecture</title>
       <description>Recording of Andrej Karpathy's lecture or paper.</description>
-      <link>https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/kaparthy.mp3</link>
-      <guid>https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/kaparthy.mp3</guid>
-      <enclosure url="https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/kaparthy.mp3" length="LENGTH_IN_BYTES" type="audio/mpeg"/>
+      <link>https://raw.githubusercontent.com/lbxa/arxiv-to-mp3/master/lib/kaparthy.mp3</link>
+      <guid>https://raw.githubusercontent.com/lbxa/arxiv-to-mp3/master/lib/kaparthy.mp3</guid>
+      <enclosure url="https://raw.githubusercontent.com/lbxa/arxiv-to-mp3/master/lib/kaparthy.mp3" length="12345678" type="audio/mpeg"/>
       <pubDate>Wed, 04 Oct 2023 10:00:00 GMT</pubDate>
     </item>
 
@@ -38,9 +37,9 @@
     <item>
       <title>NeRF: Representing Scenes as Neural Radiance Fields</title>
       <description>Recording of the paper on Neural Radiance Fields (NeRF).</description>
-      <link>https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/nerf.mp3</link>
-      <guid>https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/nerf.mp3</guid>
-      <enclosure url="https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/nerf.mp3" length="LENGTH_IN_BYTES" type="audio/mpeg"/>
+      <link>https://raw.githubusercontent.com/lbxa/arxiv-to-mp3/master/lib/nerf.mp3</link>
+      <guid>https://raw.githubusercontent.com/lbxa/arxiv-to-mp3/master/lib/nerf.mp3</guid>
+      <enclosure url="https://raw.githubusercontent.com/lbxa/arxiv-to-mp3/master/lib/nerf.mp3" length="12345678" type="audio/mpeg"/>
       <pubDate>Wed, 04 Oct 2023 10:00:00 GMT</pubDate>
     </item>
 
@@ -48,9 +47,9 @@
     <item>
       <title>Yann LeCun's Paper on Deep Learning</title>
       <description>Recording of a paper by Yann LeCun.</description>
-      <link>https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/yann.mp3</link>
-      <guid>https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/yann.mp3</guid>
-      <enclosure url="https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/yann.mp3" length="LENGTH_IN_BYTES" type="audio/mpeg"/>
+      <link>https://raw.githubusercontent.com/lbxa/arxiv-to-mp3/master/lib/yann.mp3</link>
+      <guid>https://raw.githubusercontent.com/lbxa/arxiv-to-mp3/master/lib/yann.mp3</guid>
+      <enclosure url="https://raw.githubusercontent.com/lbxa/arxiv-to-mp3/master/lib/yann.mp3" length="12345678" type="audio/mpeg"/>
       <pubDate>Wed, 04 Oct 2023 10:00:00 GMT</pubDate>
     </item>
 
