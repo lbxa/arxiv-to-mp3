@@ -1,0 +1,11 @@
+name: bucket
+main: infra.py
+runtime:
+  name: python
+  options:
+    toolchain: poetry
+description: Storage bucket
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: gcp-python

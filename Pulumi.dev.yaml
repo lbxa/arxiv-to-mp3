@@ -1,0 +1,4 @@
+config:
+  bucket:bucketName:
+    secure: AAABANbBc9YCXjJXsxJHt41G9TLZ+s4XZiULpgcPJWBEBo76vSn84pgwB4FIp4tK8Q==
+  gcp:project: strong-furnace-437404-u8

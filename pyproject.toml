@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "arxiv-to-mp3"
+version = "0.1.0"
+description = "Convert arXiv papers into podcast audio"
+authors = ["Lucas Barbosa <lucasbrsa@users.noreply.github.com>"]
+license = "GPL"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+openai = "^1.51.0"
+PyPDF2 = "^3.0.1"
+pulumi = ">=3.0.0 <4.0.0"
+pulumi-gcp = ">=8.0.0 <9.0.0"
+google-cloud-storage = "^2.18.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
