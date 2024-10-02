@@ -21,9 +21,9 @@
     <item>
       <title>Attention is All You Need</title>
       <description>Recording of the paper "Attention is All You Need".</description>
-      <link>https://lbxa.github.io/arxiv-to-mp3/lib/attention.mp3</link>
-      <guid>https://lbxa.github.io/arxiv-to-mp3/lib/attention.mp3</guid>
-      <enclosure url="https://lbxa.github.io/arxiv-to-mp3/lib/attention.mp3" length="12345678" type="audio/mpeg"/>
+      <link>https://storage.googleapis.com/arxiv-audio-store/attention.mp3</link>
+      <guid>https://storage.googleapis.com/arxiv-audio-store/attention.mp3</guid>
+      <enclosure url="https://storage.googleapis.com/arxiv-audio-store/attention.mp3" length="40689000" type="audio/mpeg"/>
       <pubDate>Wed, 04 Oct 2023 10:00:00 GMT</pubDate>
     </item>
 
