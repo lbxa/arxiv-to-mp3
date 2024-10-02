@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>My Research Paper Recordings</title>
+    <link>https://yourusername.github.io/your-repo-name/</link>
+    <description>A collection of mp3 recordings of research papers for deep understanding.</description>
+    <language>en-us</language>
+
+    <!-- Episode 1: Attention -->
+    <item>
+      <title>Attention is All You Need</title>
+      <description>Recording of the paper "Attention is All You Need".</description>
+      <link>https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/attention.mp3</link>
+      <guid>https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/attention.mp3</guid>
+      <enclosure url="https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/attention.mp3" length="LENGTH_IN_BYTES" type="audio/mpeg"/>
+      <pubDate>Wed, 04 Oct 2023 10:00:00 GMT</pubDate>
+    </item>
+
+    <!-- Episode 2: Karpathy -->
+    <item>
+      <title>Andrej Karpathy's Lecture</title>
+      <description>Recording of Andrej Karpathy's lecture or paper.</description>
+      <link>https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/kaparthy.mp3</link>
+      <guid>https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/kaparthy.mp3</guid>
+      <enclosure url="https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/kaparthy.mp3" length="LENGTH_IN_BYTES" type="audio/mpeg"/>
+      <pubDate>Wed, 04 Oct 2023 10:00:00 GMT</pubDate>
+    </item>
+
+    <!-- Episode 3: NeRF -->
+    <item>
+      <title>NeRF: Representing Scenes as Neural Radiance Fields</title>
+      <description>Recording of the paper on Neural Radiance Fields (NeRF).</description>
+      <link>https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/nerf.mp3</link>
+      <guid>https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/nerf.mp3</guid>
+      <enclosure url="https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/nerf.mp3" length="LENGTH_IN_BYTES" type="audio/mpeg"/>
+      <pubDate>Wed, 04 Oct 2023 10:00:00 GMT</pubDate>
+    </item>
+
+    <!-- Episode 4: Yann LeCun -->
+    <item>
+      <title>Yann LeCun's Paper on Deep Learning</title>
+      <description>Recording of a paper by Yann LeCun.</description>
+      <link>https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/yann.mp3</link>
+      <guid>https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/yann.mp3</guid>
+      <enclosure url="https://github.com/lbxa/arxiv-to-mp3/tree/master/lib/yann.mp3" length="LENGTH_IN_BYTES" type="audio/mpeg"/>
+      <pubDate>Wed, 04 Oct 2023 10:00:00 GMT</pubDate>
+    </item>
+
+  </channel>
+</rss>
