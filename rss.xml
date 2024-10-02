@@ -2,9 +2,19 @@
 <rss version="2.0">
   <channel>
     <title>My Research Paper Recordings</title>
-    <link>https://yourusername.github.io/your-repo-name/</link>
+    <link>https://lbxa.github.io/arxiv-to-mp3/</link>
+    <itunes:category text="Education">
+      <itunes:category text="Technology"/>
+    </itunes:category>
+    <itunes:image href="/cover.webp"/>
+    <itunes:explicit>no</itunes:explicit>
     <description>A collection of mp3 recordings of research papers for deep understanding.</description>
     <language>en-us</language>
+
+    <rss version="2.0"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+     <atom:link href="https://lbxa.github.io/arxiv-to-mp3/rss.xml" rel="self" type="application/rss+xml"/>
 
     <!-- Episode 1: Attention -->
     <item>
