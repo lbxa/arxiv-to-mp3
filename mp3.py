@@ -124,44 +124,44 @@ def main():
     # Extract text with specified offsets. Some pages are either
     # blank or don't contain primary content e.g. table of contents
     # acknowledgments, references etc. 
-    # text = extract_text_from_pdf(pdf_path, offsets=(offset_start, offset_end))
+    text = extract_text_from_pdf(pdf_path, offsets=(offset_start, offset_end))
 
-    # if not text:
-    #     print("No text extracted from the PDF. Exiting.")
-    #     return
+    if not text:
+        print("No text extracted from the PDF. Exiting.")
+        return
 
-    # # select speaker voice
-    # voice: Voice = random.choice(["alloy", "echo", "fable", "onyx", "nova", "shimmer"])
+    # select speaker voice
+    voice: Voice = random.choice(["alloy", "echo", "fable", "onyx", "nova", "shimmer"])
 
-    # cost_per_char = 15e-6  # $15.000 / 1M characters
-    # chunk_size = 4096
-    # n_chunks = math.ceil(len(text) / chunk_size)
-    # estimated_cost = len(text) * cost_per_char
+    cost_per_char = 15e-6  # $15.000 / 1M characters
+    chunk_size = 4096
+    n_chunks = math.ceil(len(text) / chunk_size)
+    estimated_cost = len(text) * cost_per_char
 
-    # print(f"Using voice: {voice}")
-    # print(f"Total characters: {len(text)}")
-    # print(f"Number of chunks: {n_chunks}")
-    # print(f"ESTIMATED COST: ${estimated_cost:.4f}")
+    print(f"Using voice: {voice}")
+    print(f"Total characters: {len(text)}")
+    print(f"Number of chunks: {n_chunks}")
+    print(f"ESTIMATED COST: ${estimated_cost:.4f}")
 
-    # chunks = []
-    # for chunk_index in range(n_chunks):
-    #     start = chunk_size * chunk_index
-    #     end = start + chunk_size
-    #     chunk_text = text[start:end]
-    #     chunks.append((chunk_index, chunk_text))
+    chunks = []
+    for chunk_index in range(n_chunks):
+        start = chunk_size * chunk_index
+        end = start + chunk_size
+        chunk_text = text[start:end]
+        chunks.append((chunk_index, chunk_text))
 
-    # # Determine the number of threads (adjust based on your system and API rate limits)
-    # max_workers = min(32, os.cpu_count() + 4)
+    # Determine the number of threads (adjust based on your system and API rate limits)
+    max_workers = min(32, os.cpu_count() + 4)
 
-    # # Use ThreadPoolExecutor with itertools.repeat to pass the same filepath to all calls
-    # with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-    #     executor.map(process_chunk, repeat(filepath), chunks, repeat(voice))
+    # Use ThreadPoolExecutor with itertools.repeat to pass the same filepath to all calls
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+        executor.map(process_chunk, repeat(filepath), chunks, repeat(voice))
 
-    # print("All chunks have been processed.")
+    print("All chunks have been processed.")
     
     # merge all chunks into a single mp3 file
-    # merge_cmd = ["./merge.sh", folder_name]
-    # subprocess.run(merge_cmd, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    merge_cmd = ["./merge.sh", folder_name]
+    subprocess.run(merge_cmd, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     upload_to_storage(BUCKET_NAME, f"lib/{folder_name}.mp3")
 
 if __name__ == "__main__":
