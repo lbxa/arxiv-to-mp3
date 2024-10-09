@@ -25,6 +25,12 @@ usage() {
     echo "  This will merge all MP3 files in chunks/attention/ into lib/attention.mp3"
 }
 
+# Check if ffmpeg is installed
+if ! command -v ffmpeg &> /dev/null; then
+    echo "Error: ffmpeg is not installed. Please install ffmpeg to use this script."
+    exit 1
+fi
+
 # Parse command-line arguments
 if [[ $# -eq 0 ]]; then
     echo "Error: Missing required argument 'name'."

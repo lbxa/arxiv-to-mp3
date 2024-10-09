@@ -57,5 +57,15 @@
       <pubDate>Wed, 04 Oct 2023 10:00:00 GMT</pubDate>
     </item>
 
+    <!-- Episode 5: Issac Asimov's Last Question-->
+    <item>
+      <title>The Last Question by Issac Asimov</title>
+      <description>Recording of the famour short story by Issac Asimov. Sourced from the internet.</description>
+      <link>https://storage.googleapis.com/arxiv-audio-store/lib/last_question.mp3</link>
+      <guid>https://storage.googleapis.com/arxiv-audio-store/lib/last_question.mp3</guid>
+      <enclosure url="https://storage.googleapis.com/arxiv-audio-store/lib/last_question.mp3" length="60689000" type="audio/mpeg"/>
+      <pubDate>Wed, 09 Oct 2024 10:00:00 GMT</pubDate>
+    </item>
+
   </channel>
 </rss>
