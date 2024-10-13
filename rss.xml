@@ -19,7 +19,7 @@
 
     <!-- Episode 1: Attention -->
     <item>
-      <title>Attention is All You Need</title>
+      <title>1: Attention is All You Need</title>
       <description>Recording of the paper "Attention is All You Need".</description>
       <link>https://storage.googleapis.com/arxiv-audio-store/lib/attention.mp3</link>
       <guid>https://storage.googleapis.com/arxiv-audio-store/lib/attention.mp3</guid>
@@ -29,7 +29,7 @@
 
     <!-- Episode 2: Karpathy -->
     <item>
-      <title>Andrej Karpathy's Lecture</title>
+      <title>2: Andrej Karpathy's Lecture</title>
       <description>Recording of Andrej Karpathy's lecture or paper.</description>
       <link>https://storage.googleapis.com/arxiv-audio-store/lib/kaparthy.mp3</link>
       <guid>https://storage.googleapis.com/arxiv-audio-store/lib/kaparthy.mp3</guid>
@@ -39,7 +39,7 @@
 
     <!-- Episode 3: NeRF -->
     <item>
-      <title>NeRF: Representing Scenes as Neural Radiance Fields</title>
+      <title>3: NeRF: Representing Scenes as Neural Radiance Fields</title>
       <description>Recording of the paper on Neural Radiance Fields (NeRF).</description>
       <link>https://storage.googleapis.com/arxiv-audio-store/lib/nerf.mp3</link>
       <guid>https://storage.googleapis.com/arxiv-audio-store/lib/nerf.mp3</guid>
@@ -49,22 +49,31 @@
 
     <!-- Episode 4: Yann LeCun -->
     <item>
-      <title>Yann LeCun's Paper on Deep Learning</title>
+      <title>4: Yann LeCun's Paper on Deep Learning</title>
       <description>Recording of a paper by Yann LeCun.</description>
       <link>https://storage.googleapis.com/arxiv-audio-store/lib/yann.mp3</link>
       <guid>https://storage.googleapis.com/arxiv-audio-store/lib/yann.mp3</guid>
       <enclosure url="https://storage.googleapis.com/arxiv-audio-store/lib/yann.mp3" length="60689000" type="audio/mpeg"/>
-      <pubDate>Wed, 04 Oct 2023 10:00:00 GMT</pubDate>
+      <pubDate>Wed, 04 Oct 2023 16:20:00 GMT</pubDate>
     </item>
 
     <!-- Episode 5: Issac Asimov's Last Question-->
     <item>
-      <title>The Last Question by Issac Asimov</title>
+      <title>5: The Last Question by Issac Asimov</title>
       <description>Recording of the famour short story by Issac Asimov. Sourced from the internet.</description>
       <link>https://storage.googleapis.com/arxiv-audio-store/lib/last_question.mp3</link>
       <guid>https://storage.googleapis.com/arxiv-audio-store/lib/last_question.mp3</guid>
       <enclosure url="https://storage.googleapis.com/arxiv-audio-store/lib/last_question.mp3" length="60689000" type="audio/mpeg"/>
-      <pubDate>Wed, 09 Oct 2024 10:00:00 GMT</pubDate>
+      <pubDate>Wed, 09 Oct 2024 14:30:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>6: A Path Towards Autonomous Machine Intelligence</title>
+      <description>Recording of yet another seminal paper by Yann LeCun.</description>
+      <link>https://storage.googleapis.com/arxiv-audio-store/lib/machine_intelligence.mp3</link>
+      <guid>https://storage.googleapis.com/arxiv-audio-store/lib/machine_intelligence.mp3</guid>
+      <enclosure url="https://storage.googleapis.com/arxiv-audio-store/lib/machine_intelligence.mp3" length="712283000" type="audio/mpeg"/>
+      <pubDate>Sun, 14 Oct 2024 23:50:00 GMT</pubDate>
     </item>
 
   </channel>
