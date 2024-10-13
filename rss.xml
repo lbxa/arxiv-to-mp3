@@ -3,7 +3,7 @@
      xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
      xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My Research Paper Recordings</title>
+    <title>The Research Papers Podcast</title>
     <link>https://lbxa.github.io/arxiv-to-mp3/</link>
     <itunes:category text="Technology" />
     <itunes:image href="https://lbxa.github.io/arxiv-to-mp3/assets/cover.png"/>
