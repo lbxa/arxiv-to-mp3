@@ -85,6 +85,16 @@
       <pubDate>Sun, 14 Oct 2024 23:50:00 GMT</pubDate>
       <itunes:episodeType>full</itunes:episodeType>
     </item>
+    
+    <!-- Episode 7: Test-Time Training -->
+    <item>
+      <title>7: The Surprising Effectiveness of Test-Time Training for Abstract Reasoning</title>
+      <description>Recording of a paper from MIT researchers exploring how test-time training can significantly improve language models' reasoning capabilities on novel problems, achieving state-of-the-art results on the Abstraction and Reasoning Corpus.</description>
+      <link>https://storage.googleapis.com/arxiv-audio-store/lib/ttt.mp3</link>
+      <guid>https://storage.googleapis.com/arxiv-audio-store/lib/ttt.mp3</guid>
+      <enclosure url="https://storage.googleapis.com/arxiv-audio-store/lib/ttt.mp3" length="35689000" type="audio/mpeg"/>
+      <pubDate>Mon, 11 Nov 2024 12:00:00 GMT</pubDate>
+    </item>
 
   </channel>
 </rss>
