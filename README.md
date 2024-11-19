@@ -1,6 +1,6 @@
 # arXiv 2 Mp3
 
-[Podcast Homepage](https://lbxa.github.io/arxiv-to-mp3/rss.xml)
+[Podcast Homepage](https://lbxa.github.io/arxiv-to-mp3)
 
 Transforms any PDF into an mp3 file. Specifically designed for arXiv papers, and soon will be connected via the arXiv API.
 
