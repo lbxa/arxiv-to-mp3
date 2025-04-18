@@ -1,0 +1,73 @@
+Welcome to this episode where we explore the cutting edge of robotics powered by foundation models—the massive pretrained AI systems that have revolutionized natural language processing and computer vision. Imagine robots that can understand complex commands, recognize objects they've never seen before, and adapt on the fly to new environments—all enabled by these foundation models. Today, we'll dive deep into a comprehensive survey that examines how these models are transforming robotics, the challenges that remain, and the exciting future directions ahead.
+
+The problem at hand arises from how traditional robotics systems learn. Previously, deep learning in robotics relied on relatively small, task-specific datasets. This narrow scope limited robots' ability to generalize to new tasks or environments. Foundation models, by contrast, are pretrained on vast internet-scale datasets, enabling them to generalize remarkably well and even perform so-called zero-shot learning—solving tasks they’ve never explicitly been trained on. Yet integrating these foundation models into robotics is not straightforward. Challenges include scarce robot-specific data, ensuring safety and reliable uncertainty estimates, and achieving real-time performance on robot hardware.
+
+So how are researchers tackling these challenges? The paper surveys a wide array of recent efforts, categorizing them into three main areas: decision-making and control, perception, and embodied AI, including generalist agents. It also provides a foundational background on the models themselves and their training.
+
+Let's start with some key background concepts.
+
+Foundation models typically rely on the transformer architecture, which uses mechanisms called multi-head self-attention to weigh the importance of different parts of an input sequence. The core mathematical operation, which we'll call attention function L₁, can be expressed as:
+
+L₁ = softmax(Q Kᵀ / √d_k) V
+
+Here, Q, K, and V are matrices representing queries, keys, and values derived from the input tokens; d_k is the dimension of the key vectors. This function computes attention weights between tokens and produces a weighted sum of values, enabling the model to capture complex dependencies in data efficiently.
+
+Foundation models come in various flavors. Large Language Models (LLMs) like GPT-3 and GPT-4 are autoregressive—meaning they predict the next token in a sequence given previous tokens—trained to minimize a loss L₂, which is the negative log-likelihood of the next token given prior tokens:
+
+L₂ = -Σ_i log P(x_i | x_{i-N}, ..., x_{i-1})
+
+This approach enables fluent text generation and understanding.
+
+Vision-Language Models (VLMs), such as CLIP, employ contrastive learning objectives to align images and text in a shared embedding space. Their training loss, which we'll symbolize as L₃, combines two symmetric components that encourage matching pairs of images and texts to have similar embeddings, while pushing apart unmatched pairs. For each pair i:
+
+L₃ = (1/N) Σ_i [λ ℓ_i^{(v→u)} + (1 - λ) ℓ_i^{(u→v)}]
+
+Where ℓ_i^{(v→u)} and ℓ_i^{(u→v)} are contrastive losses calculated by comparing cosine similarities between image embeddings v_i and text embeddings u_i, scaled by a temperature parameter τ.
+
+Another model class is diffusion models, like DALL-E2, which generate images by gradually denoising a noisy input over T time steps. These models rely on a forward noising process q and a learned reverse denoising process parameterized by θ. The loss L₄ used to train diffusion models involves minimizing the Kullback-Leibler divergence between these distributions over the denoising steps.
+
+With this groundwork, the survey moves into applications in robotics.
+
+In decision-making and control, language-conditioned policies enable robots to interpret natural language instructions l and produce actions a_t given states s_t. The training objective, L₅, is a maximum likelihood imitation learning loss over trajectories τ paired with language:
+
+L₅ = E_{(τ,l)∼D} Σ_t log π_θ(a_t | s_t, l)
+
+Researchers have addressed data scarcity by learning from teleoperated play data instead of costly expert demonstrations, and by leveraging foundation models to provide feedback labeling for fine-tuning policies.
+
+Reinforcement learning approaches have incorporated foundation models to improve exploration and task decomposition. For example, the Adaptive Agent (AdA) uses a transformer-based architecture trained on diverse tasks to quickly adapt to new environments.
+
+In value learning, models like R3M and VIP learn goal-conditioned value functions from videos to provide reward signals for downstream tasks, using losses that enforce temporal smoothness and semantic alignment. LIV extends these ideas by incorporating language to ground visual representations in control.
+
+High-level task planning leverages LLMs for translating natural language instructions into executable plans or even code for robot policies. For instance, Code-as-Policies uses language models to generate robot control programs from textual commands. These programs can be hierarchical, recursively defining functions to handle complex behaviors.
+
+In perception, open-vocabulary object detection models like GLIP and OWL-ViT redefine detection as language-grounded tasks, enabling zero-shot recognition of novel objects. For 3D classification, models such as ULIP align 3D point clouds with images and text embeddings through contrastive learning, overcoming data scarcity by leveraging multi-modal triplets.
+
+Semantic segmentation benefits from models like LSeg and SAM, which create joint embedding spaces for text and pixels, enabling flexible, zero-shot segmentation. However, challenges remain in achieving real-time performance and fine-grained accuracy.
+
+In 3D scene understanding, combining foundation models with implicit representations like Neural Radiance Fields (NeRF) leads to language-embedded radiance fields (LERFs) that can be queried semantically in 3D space. Extensions include methods for scene editing, where text or image prompts manipulate NeRFs to change object appearance or shape.
+
+Robot affordances—the possible actions on objects—are predicted using methods like Affordance Diffusion, which synthesizes hand-object interactions, and Vision-Robotic Bridge, which learns affordances from internet videos.
+
+Predictive models, or world models, forecast future states given actions and are crucial for planning. Recent works use transformer and diffusion models trained on large datasets to generate video predictions conditioned on language, facilitating long-horizon control.
+
+Embodied AI explores agents operating in virtual or physical environments. Frameworks like Statler maintain world states over time using LLMs, while systems like MineDojo and Voyager develop agents that learn and plan in open-world simulated environments like Minecraft, leveraging LLMs for continual learning and task decomposition.
+
+Generalist AI aims to produce agents like Gato that can handle diverse tasks and embodiments using multimodal transformers trained on massive datasets.
+
+Despite these advances, significant challenges remain.
+
+Data scarcity is a central issue. Robot-specific data is limited compared to internet-scale text and image data. To overcome this, researchers use unstructured play data, data augmentation with generative models like diffusion-based inpainting, and synthetic data from high-fidelity simulators. Additionally, training 3D foundation models is hindered by lack of paired 3D and language data; novel datasets and distillation from 2D models are promising directions.
+
+Real-time performance is constrained by the computational demands of foundation models. Their large size and the cloud-based access model introduce latency and reliability concerns, especially in safety-critical and network-limited domains. Distilling large models into smaller, efficient variants for onboard robot deployment is an important future avenue.
+
+Multimodal representation learning faces challenges in adequately modeling the heterogeneity across modalities. Some modalities lack sufficient paired data with text, necessitating indirect alignment strategies, such as translating 3D point clouds to images before text alignment.
+
+Uncertainty quantification is crucial for safe deployment. It involves estimating instance-level uncertainty—how confident the model is for a particular input—and distribution-level uncertainty—how well the model will perform over the range of inputs it will encounter. Calibration ensures these uncertainty estimates correspond to true probabilities. Distribution shifts, especially those caused by the robot’s closed-loop interactions with its environment, complicate this. Techniques like conformal prediction have been applied to language-instructed robots to provide statistically guaranteed uncertainty estimates and enable robots to ask for human help when uncertain.
+
+Safety evaluation is another critical concern. Pre-deployment testing must ensure the model has not seen test scenarios before and that failures are uncovered through diverse scenario testing. Runtime monitoring and out-of-distribution detection can help robots identify when they are operating beyond their training distribution and trigger safe fallback behaviors.
+
+Lastly, the survey discusses the trade-off between using pretrained foundation models as plug-and-play modules versus building or fine-tuning new models specifically for robotics. While plug-and-play approaches enable rapid integration, new models or fine-tuning are needed to capture robot-specific tasks and variability.
+
+In conclusion, foundation models hold immense promise for advancing robotics by enabling generalization, zero-shot learning, and multimodal integration. Yet significant challenges in data, computation, safety, and uncertainty remain. Addressing these challenges will require coordinated efforts in dataset creation, model architecture, evaluation benchmarks, and safety methodologies. The survey serves as a roadmap for researchers aiming to harness foundation models to build more capable, adaptable, and safe robots in the future.
+
+Thanks for joining this deep dive into foundation models in robotics. Stay tuned for more insights at the intersection of AI and robotics.

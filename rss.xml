@@ -96,5 +96,16 @@
       <pubDate>Mon, 11 Nov 2024 12:00:00 GMT</pubDate>
     </item>
 
+    <!-- Episode 8: Foundation Models in Robotics -->
+    <item>
+      <title>8: Foundation Models in Robotics</title>
+      <description>Recording of research paper discussing the application of foundation models to robotics, exploring how large-scale pre-trained models can enhance robot learning and adaptation.</description>
+      <link>https://storage.googleapis.com/arxiv-audio-store/lib/foundation_models_in_robotics.mp3</link>
+      <guid>https://storage.googleapis.com/arxiv-audio-store/lib/foundation_models_in_robotics.mp3</guid>
+      <enclosure url="https://storage.googleapis.com/arxiv-audio-store/lib/foundation_models_in_robotics.mp3" length="42500000" type="audio/mpeg"/>
+      <pubDate>Wed, 13 Nov 2024 15:00:00 GMT</pubDate>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+
   </channel>
 </rss>
