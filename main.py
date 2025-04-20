@@ -24,17 +24,18 @@ def main():
     if args.mode == "pdf":
         pdf_path = Path(__file__).parent / "papers" / args.pdf_file
         source = PDFTextSource(pdf_path, args.start_offset, args.end_offset)
+        text = source.get_text()
         base_name = Path(args.pdf_file).stem
     else:
         text_path = Path(args.text_file)
         source = FileTextSource(text_path)
+        text = source.get_text_episode()
         base_name = Path(args.text_file).stem
 
     out_dir = Path(__file__).parent / "chunks" / base_name
     out_dir.mkdir(parents=True, exist_ok=True)
     print(f"Output: {out_dir}")
 
-    text = source.get_text_episode()
     if not text:
         print("No text found. Exiting.")
         return
