@@ -118,5 +118,16 @@
       <itunes:episodeType>full</itunes:episodeType>
     </item>
 
+    <!-- Episode 10: Feedforward Neural Networks by Geoffrey Hinton -->
+    <item>
+      <title>10: Feedforward Neural Networks by Geoffrey Hinton</title>
+      <description>Recording of Geoffrey Hinton's seminal paper on feedforward neural networks, discussing the fundamentals and advancements in deep learning architectures.</description>
+      <link>https://storage.googleapis.com/arxiv-audio-store/lib/feed_forward.mp3</link>
+      <guid>https://storage.googleapis.com/arxiv-audio-store/lib/feed_forward.mp3</guid>
+      <enclosure url="https://storage.googleapis.com/arxiv-audio-store/lib/feed_forward.mp3" length="47800000" type="audio/mpeg"/>
+      <pubDate>Sun, 27 Apr 2025 12:00:00 GMT</pubDate>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+
   </channel>
 </rss>
