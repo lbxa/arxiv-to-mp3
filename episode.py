@@ -1,6 +1,6 @@
 import random
 from pathlib import Path
-from typing import Literal
+from typing import Literal, Optional
 import argparse
 import os
 import PyPDF2
@@ -130,20 +130,72 @@ class FileTextSource(TextSource):
 
 
 class TTSConverter:
-    def __init__(self, voice: Voice = None, api_client: OpenAI = None):
-        self.voice = voice or random.choice(DEFAULT_VOICES)
-        self.client = api_client or OpenAI()
+    """Text-to-speech converter supporting multiple providers."""
+
+    def __init__(
+        self,
+        voice: Optional[Voice] = None,
+        api_client: Optional[OpenAI] = None,
+        provider: str = "openai",
+        elevenlabs_voice_id: Optional[str] = None,
+        elevenlabs_model_id: str = "eleven_multilingual_v2",
+    ):
+        self.provider = provider
+        self.instructions = "Speak in a conversational tone, like a podcast."
+
+        if provider == "openai":
+            self.voice = voice or random.choice(DEFAULT_VOICES)
+            self.client = api_client or OpenAI()
+            self.model = "gpt-4o-mini-tts"
+        elif provider == "elevenlabs":
+            api_key = os.getenv("ELEVENLABS_API_KEY")
+            if not api_key:
+                raise ValueError(
+                    "Please set the ELEVENLABS_API_KEY environment variable for ElevenLabs."
+                )
+
+            try:
+                from elevenlabs.client import ElevenLabs
+            except ImportError as exc:  # pragma: no cover - import guard
+                raise ImportError(
+                    "The 'elevenlabs' package is required for ElevenLabs support."
+                ) from exc
+
+            self.client = ElevenLabs(api_key=api_key)
+            self.voice = elevenlabs_voice_id or os.getenv("ELEVENLABS_VOICE_ID")
+            if not self.voice:
+                raise ValueError(
+                    "Provide an ElevenLabs voice ID via the parameter or ELEVENLABS_VOICE_ID."
+                )
+            self.model = elevenlabs_model_id
+        else:
+            raise ValueError(f"Unsupported provider '{provider}'")
 
     def text_to_speech(self, text: str, out_path: Path) -> None:
         try:
-            with self.client.audio.speech.with_streaming_response.create(
-                model="gpt-4o-mini-tts",
-                voice=self.voice,
-                input=text,
-                instructions="Speak in a conversational tone, like a podcast.",
-            ) as response:
-                response.stream_to_file(out_path)
-                print(f"Created {out_path.name}")
+            if self.provider == "openai":
+                with self.client.audio.speech.with_streaming_response.create(
+                    model=self.model,
+                    voice=self.voice,
+                    input=text,
+                    instructions=self.instructions,
+                ) as response:
+                    response.stream_to_file(out_path)
+            else:
+                audio_stream = self.client.text_to_speech.convert(
+                    voice_id=self.voice,
+                    model_id=self.model,
+                    text=text,
+                    optimize_streaming_latency="0",
+                    output_format="mp3_44100_128",
+                )
+                with open(out_path, "wb") as f:
+                    for chunk in audio_stream:
+                        if isinstance(chunk, bytes):
+                            f.write(chunk)
+                        elif hasattr(chunk, "decode"):
+                            f.write(chunk.decode("utf-8").encode("utf-8"))
+            print(f"Created {out_path.name}")
         except Exception as e:
             print(f"Error creating {out_path.name}: {e}")
 
@@ -173,13 +225,54 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Convert PDF or text to MP3")
     subparsers = parser.add_subparsers(dest="mode", required=True)
 
+    common_kwargs = {
+        "provider": {"choices": ["openai", "elevenlabs"], "default": "openai"},
+        "chunk_size": {"type": int, "default": 4096},
+        "base_name": {"help": "Override the output base filename."},
+        "skip_upload": {
+            "action": "store_true",
+            "help": "Skip uploading the merged MP3 to cloud storage.",
+        },
+        "elevenlabs_voice_id": {
+            "help": "Voice ID to use when provider is ElevenLabs.",
+        },
+    }
+
     pdf_parser = subparsers.add_parser("pdf", help="PDF mining mode")
     pdf_parser.add_argument("pdf_file", help="PDF filename in papers/")
     pdf_parser.add_argument("start_offset", type=int, help="Pages to skip at start")
     pdf_parser.add_argument("end_offset", type=int, help="Pages to skip at end")
+    pdf_parser.add_argument("--voice", choices=DEFAULT_VOICES, help="Voice to use")
 
     text_parser = subparsers.add_parser("text", help="Direct text mode")
     text_parser.add_argument("text_file", help="Path to text file")
     text_parser.add_argument("--voice", choices=DEFAULT_VOICES, help="Voice to use")
+
+    for parser in (pdf_parser, text_parser):
+        parser.add_argument(
+            "--provider",
+            choices=common_kwargs["provider"]["choices"],
+            default=common_kwargs["provider"]["default"],
+            help="TTS provider to use.",
+        )
+        parser.add_argument(
+            "--chunk-size",
+            type=common_kwargs["chunk_size"]["type"],
+            default=common_kwargs["chunk_size"]["default"],
+            help="Number of characters per audio chunk.",
+        )
+        parser.add_argument(
+            "--base-name",
+            help=common_kwargs["base_name"]["help"],
+        )
+        parser.add_argument(
+            "--skip-upload",
+            action=common_kwargs["skip_upload"]["action"],
+            help=common_kwargs["skip_upload"]["help"],
+        )
+        parser.add_argument(
+            "--elevenlabs-voice-id",
+            help=common_kwargs["elevenlabs_voice_id"]["help"],
+        )
 
     return parser.parse_args()
