@@ -8,6 +8,51 @@ Think of it like a printing service for papers. The costs to produce is normally
 
 You can host any of these papers using your preferred podcasting app. The RSS feed was verified using W3C's [Feed Validation Service](https://validator.w3.org/feed/).
 
+## 🚀 REST API
+
+An optional FastAPI server exposes the text-to-speech workflow over HTTP, allowing you to trigger conversions without running the CLI manually.
+
+### Environment
+
+Set the following variables before starting the server:
+
+- `OPENAI_API_KEY` – required for OpenAI text generation and TTS.
+- `BUCKET_NAME` – Google Cloud Storage bucket used by the uploader.
+- `ELEVENLABS_API_KEY` – required when using the ElevenLabs provider.
+- `ELEVENLABS_VOICE_ID` – default voice for ElevenLabs (can also be provided per request).
+
+### Run the server
+
+```bash
+uvicorn api:app --host 0.0.0.0 --port 8000
+```
+
+### Example request
+
+```bash
+curl -X POST http://localhost:8000/generate \
+  -H "Content-Type: application/json" \
+  -d '{
+        "mode": "pdf",
+        "pdf_file": "example.pdf",
+        "start_offset": 0,
+        "end_offset": 0,
+        "provider": "elevenlabs",
+        "elevenlabs_voice_id": "<voice-id>"
+      }'
+```
+
+The response contains the chunk directory, merged MP3 path, and (if enabled) the uploaded object path.
+
+## 🔊 Text-to-Speech Providers
+
+The CLI and API now support both OpenAI and ElevenLabs TTS backends via the `--provider` flag or the `provider` request field.
+
+- **OpenAI** (default): choose voices using `--voice` or allow a random default.
+- **ElevenLabs**: supply a voice ID with `--elevenlabs-voice-id` or set `ELEVENLABS_VOICE_ID`.
+
+Use `--skip-upload` (CLI) or `"upload": false` (API) to bypass the Google Cloud Storage upload step when experimenting locally.
+
 ## 📄 Copyright
 
 ### **Ownership and Rights**
